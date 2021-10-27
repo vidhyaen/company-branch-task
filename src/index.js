@@ -1,3 +1,5 @@
+
+
 var company = Backbone.Model.extend({
   defaults: {
     name: "",
@@ -8,11 +10,32 @@ var company = Backbone.Model.extend({
   }
 });
 
-var company = new Backbone.Collection();
+var companys = Backbone.Collection.extend({
+model: company();
+});
 
+var companies=new companys();
 company.on("add", function (company) {});
 
 company.add([{ name: "codingmart" }, { name: "web" }]);
+
+var CompanyView = Backbone.View.extend({
+	model: company,
+	el: $('.company-list'),
+	initialize: function() {
+		var self = this;
+		this.model.on('add', this.render, this);
+		},
+	render: function() {
+		var self = this;
+		this.$el.html('');
+		_.each(this.model.toArray(), function(company) {
+			self.$el.append((new CompanyView({model: company})).render().$el);
+		});
+		return this;
+	}
+});
+var CompanyView = new CompanyView();
 $(document).ready(function () {
   $(".add-company").on("click", function () {
     var company = new company({
