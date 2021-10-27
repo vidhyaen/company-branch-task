@@ -3,6 +3,7 @@ var company = Backbone.Model.extend({
     name: "",
     nature: "",
     gst: "",
+    branch: "",
     address: ""
   }
 });
@@ -15,13 +16,16 @@ company.add([{ name: "codingmart" }, { name: "web" }]);
 $(document).ready(function () {
   $(".add-company").on("click", function () {
     var company = new company({
-      author: $(".author-input").val(),
-      title: $(".title-input").val(),
-      url: $(".url-input").val()
+      name: $(".name-input").val(),
+      nature: $(".nature-input").val(),
+      gst: $(".gst-input").val(),
+      address: $(".address-input").val()
     });
-    $(".author-input").val("");
-    $(".title-input").val("");
-    $(".url-input").val("");
+    $(".name-input").val("");
+    $(".nature-input").val("");
+    $(".address-input").val("");
+    $(".branch-input").val("");
+    $(".gst-input").val("");
     company.add(company);
     company.save(null, {
       success: function (response) {
