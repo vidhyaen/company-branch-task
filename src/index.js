@@ -52,7 +52,7 @@ $(document).ready(function () {
     company.add(company);
     company.save(null, {
       success: function (response) {
-        console.log("Successfully SAVED: " + response.toJSON()._id);
+        console.log("Successfully SAVED: ");
       },
       error: function () {
         console.log("Failed to save company details!");
