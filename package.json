@@ -1,5 +1,5 @@
 {
-  "name": "backbone-js-tutorial",
+  "name": "coding-mart-task",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -7,7 +7,9 @@
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
-  "dependencies": {},
+  "dependencies": {
+    "backbone": "1.4.0"
+  },
   "devDependencies": {
     "@babel/core": "7.2.0",
     "parcel-bundler": "^1.6.1"
